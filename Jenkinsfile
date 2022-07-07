@@ -39,6 +39,10 @@ pipeline {
 
           stage("Docker push") {
                steps {
+		 withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
+        def registry_url = "registry.hub.docker.com/"
+        bat "docker login -u $USER -p $PASSWORD ${registry_url}"
+        docker.withRegistry("http://${registry_url}", "docker-hub-credentials")
                     sh "docker push gbt1/calculator:${BUILD_TIMESTAMP}"
                }
           }
