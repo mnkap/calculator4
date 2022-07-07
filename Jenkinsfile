@@ -42,11 +42,11 @@ pipeline {
 		 withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
         def registry_url = "registry.hub.docker.com/"
         bat "docker login -u $USER -p $PASSWORD ${registry_url}"
-        docker.withRegistry("http://${registry_url}", "docker-hub-credentials")
+        docker.withRegistry("http://${registry_url}", "docker-hub-credentials"){
                     sh "docker push gbt1/calculator:${BUILD_TIMESTAMP}"
                }
           }
-
+      }
           stage("Update version") {
                steps {
                     sh "sed  -i 's/{{VERSION}}/${BUILD_TIMESTAMP}/g' deployment.yaml"
