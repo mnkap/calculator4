@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/home/ubuntu2/calc/calculator4/src/test/java/acceptance/AcceptanceTest.java">
+</file>
+<file name="/home/ubuntu2/calc/calculator4/src/test/java/acceptance/StepDefinitions.java">
+</file>
+<file name="/home/ubuntu2/calc/calculator4/src/test/java/com/leszko/calculator/CalculatorTest.java">
+</file>
+</checkstyle>
