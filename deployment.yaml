@@ -18,4 +18,4 @@ spec:
       - name: calculator
         image: gbt1/calculator:{{VERSION}}
         ports:
-        - containerPort: 8082
+        - containerPort: 8080
